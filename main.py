@@ -24,8 +24,8 @@ def get_tallest_superhero(gender: str, work: bool):
             if superhero["appearance"]["gender"] == gender and (
                 work
                 == (
-                    superhero["work"]["base"] is not None
-                    and superhero["work"]["base"].strip() != "-"
+                    superhero["work"]["occupation"] is not None
+                    and superhero["work"]["occupation"].strip() != "-"
                 )
             ):
                 height = superhero["appearance"]["height"][1]
