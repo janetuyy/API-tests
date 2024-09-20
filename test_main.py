@@ -13,13 +13,13 @@ def test_height_to_sm():
 # Testing get_tallest_superhero
 def test_get_tallest_superhero():
     test_cases = [
-        ("Male", True),
-        ("Male", False),
-        ("Female", True),
-        ("Female", False),
+        ("Male", True, "Utgard-Loki"),
+        ("Male", False, "Ymir"),
+        ("Female", True, "Giganta"),
+        ("Female", False, "Ardina"),
     ]
 
-    for gender, job in test_cases:
+    for gender, job, expected_res in test_cases:
         result = main.get_tallest_superhero(gender, job)
         assert result is not None, f"No tallest {gender.lower()} superhero {'with' if job else 'without'} job found"
     
@@ -31,6 +31,7 @@ def test_get_tallest_superhero():
         assert "occupation" in result["work"]
         assert "name" in result
 
+        assert result["name"] == expected_res, f"Expected {expected_res}, but got {result['name']}"
 
 
 if __name__ == "__main__":
